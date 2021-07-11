@@ -1,12 +1,13 @@
 package org.goafabric.fhir.configuration;
 
-import ca.uhn.fhir.context.FhirVersionEnum;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import org.hl7.fhir.r4.model.*;
 
 @RegisterForReflection(targets= {
-        FhirVersionEnum.class,
+        ca.uhn.fhir.context.FhirVersionEnum.class,
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        ca.uhn.fhir.rest.param.StringParam.class,
+
         StructureDefinition.class,
 
         Account.class,
