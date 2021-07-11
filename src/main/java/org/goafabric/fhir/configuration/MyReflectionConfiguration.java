@@ -4,12 +4,16 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import org.hl7.fhir.r4.model.*;
 
 @RegisterForReflection(targets= {
+        //Base classes
         ca.uhn.fhir.context.FhirVersionEnum.class,
-        org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        org.hl7.fhir.utilities.xhtml.XhtmlNode.class,
+
+        //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        org.hl7.fhir.utilities.xhtml.XhtmlNode.class,
-        
+        //R4 model classes
+        org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+
         Account.class,
         ActivityDefinition.class,
         Address.class,
