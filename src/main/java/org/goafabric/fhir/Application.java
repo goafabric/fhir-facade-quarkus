@@ -1,4 +1,4 @@
-package org.goafabric.fhirfacade;
+package org.goafabric.fhir;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;

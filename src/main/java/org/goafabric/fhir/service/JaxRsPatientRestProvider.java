@@ -1,4 +1,4 @@
-package org.goafabric.fhirfacade.service;
+package org.goafabric.fhir.service;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.context.api.AddProfileTagEnum;

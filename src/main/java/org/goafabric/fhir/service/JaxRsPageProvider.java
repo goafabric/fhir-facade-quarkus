@@ -1,4 +1,5 @@
-package org.goafabric.fhirfacade.service;
+/*
+package org.goafabric.fhir.service;
 
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsPageProvider;
 import ca.uhn.fhir.rest.api.Constants;
@@ -20,3 +21,5 @@ public class JaxRsPageProvider extends AbstractJaxRsPageProvider {
 	}
 
 }
+
+*/

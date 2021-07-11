@@ -1,8 +1,9 @@
-package org.goafabric.fhirfacade.service;
+package org.goafabric.fhir.configuration;
 
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.server.IResourceProvider;
+import org.goafabric.fhir.service.JaxRsPatientRestProvider;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
