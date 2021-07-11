@@ -3,7 +3,7 @@ package org.goafabric.fhir.configuration;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.server.IResourceProvider;
-import org.goafabric.fhir.service.JaxRsPatientRestProvider;
+import org.goafabric.fhir.service.PatientService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -26,7 +26,7 @@ public class JaxRsConformanceProvider extends AbstractJaxRsConformanceProvider {
 	private static final String SERVER_NAME = "Jax-Rs Test Example";
 	
     @Inject
-    private JaxRsPatientRestProvider patientProvider;
+    private PatientService patientProvider;
 
 	/**
 	 * Standard Constructor
@@ -39,7 +39,7 @@ public class JaxRsConformanceProvider extends AbstractJaxRsConformanceProvider {
 	protected ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> getProviders() {
 		ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map = new ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider>();
 		map.put(JaxRsConformanceProvider.class, this);
-		map.put(JaxRsPatientRestProvider.class, patientProvider);
+		map.put(PatientService.class, patientProvider);
 		return map;
 	}
 }
