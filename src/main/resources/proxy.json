@@ -1,0 +1,6 @@
+[
+  ["javax.ws.rs.core.HttpHeaders"],
+  ["org.jboss.resteasy.specimpl.HttpHeaders"],
+  ["javax.ws.rs.core.UriInfo"],
+  ["org.jboss.resteasy.specimpl.ResteasyUriInfo"]
+]
