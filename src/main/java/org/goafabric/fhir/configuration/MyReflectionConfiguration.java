@@ -9,9 +9,7 @@ import org.hl7.fhir.r4.model.*;
         ca.uhn.fhir.rest.param.StringParam.class,
 
         org.hl7.fhir.utilities.xhtml.XhtmlNode.class,
-
-        StructureDefinition.class,
-
+        
         Account.class,
         ActivityDefinition.class,
         Address.class,
