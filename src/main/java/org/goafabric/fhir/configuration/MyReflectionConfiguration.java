@@ -8,6 +8,8 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         ca.uhn.fhir.rest.param.StringParam.class,
 
+        org.hl7.fhir.utilities.xhtml.XhtmlNode.class,
+
         StructureDefinition.class,
 
         Account.class,
