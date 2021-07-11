@@ -36,16 +36,20 @@
             <artifactId>log4j2-jboss-logmanager</artifactId>
         </dependency>
 
-        <!-- hapi -->
+        <!-- monitoring -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+        </dependency>
 
         <!--
         <dependency>
-            <groupId>ca.uhn.hapi.fhir</groupId>
-            <artifactId>hapi-fhir-server</artifactId>
-            <version>4.1.0</version>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
         </dependency>
         -->
 
+        <!-- hapi -->
 
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
