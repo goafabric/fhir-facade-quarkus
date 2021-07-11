@@ -73,7 +73,7 @@
             <artifactId>jena-arq</artifactId>
             <version>4.1.0</version>
         </dependency>
-
+        
         <!-- code generation -->
         <dependency>
             <groupId>org.projectlombok</groupId>
