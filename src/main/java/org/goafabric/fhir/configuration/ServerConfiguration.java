@@ -15,11 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Conformance Rest Service
- * 
- * @author Peter Van Houte | peter.vanhoute@agfa.com | Agfa Healthcare
- */
 @Path("")
 @Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 @Startup
@@ -32,9 +27,6 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
     @Inject PatientService patientService;
 	@Inject PractitionerService practitionerService;
 
-	/**
-	 * Standard Constructor
-	 */
 	public ServerConfiguration() {
 		super(FhirContext.forR4(), SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
 	}
