@@ -4,6 +4,7 @@ import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.server.IResourceProvider;
+import io.quarkus.runtime.Startup;
 import org.goafabric.fhir.service.PatientService;
 import org.goafabric.fhir.service.PractitionerService;
 
@@ -21,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Path("")
 @Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
+@Startup
 @ApplicationScoped
 public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 	private static final String SERVER_VERSION = "1.0.0";
@@ -39,18 +41,16 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 
 	@Override
 	protected ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> getProviders() {
-		return null;
-
-		/*
 		ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map = new ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider>();
 		map.put(ServerConfiguration.class, this);
 		map.put(PatientService.class, patientService);
 		map.put(PractitionerService.class, practitionerService);
 
-		getInterceptorService().registerInterceptor(new TenantIdInterceptor());
+		//getInterceptorService().registerInterceptor(new TenantIdInterceptor());
 		return map;
-
-		 */
 	}
 
+	public String getBaseForServer() {
+		return "/fhir";
+	}
 }
