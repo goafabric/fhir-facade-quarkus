@@ -256,5 +256,5 @@ import org.hl7.fhir.r4.model.*;
         VisionPrescription.class,
         XhtmlType.class
         })
-public class MyReflectionConfiguration {
+public class ReflectionConfiguration {
 }
