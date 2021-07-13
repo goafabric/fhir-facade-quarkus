@@ -14,6 +14,22 @@ import org.hl7.fhir.r4.model.*;
         //R4 model classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
 
+        /*
+        Identifier.class,
+        HumanName.class,
+        ContactPoint.class,
+        DateType.class,
+        Type.class,
+        Address.class,
+        CodeableConcept.class,
+        Attachment.class,
+        Reference.class,
+        Resource.class,
+        Organization.class,
+        BackboneElement.class,
+        BackboneType.class,
+         */
+
         Account.class,
         ActivityDefinition.class,
         Address.class,
