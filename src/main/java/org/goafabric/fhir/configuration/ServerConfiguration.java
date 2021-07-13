@@ -1,5 +1,6 @@
 package org.goafabric.fhir.configuration;
 
+import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.server.IResourceProvider;
@@ -33,15 +34,23 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 	 * Standard Constructor
 	 */
 	public ServerConfiguration() {
-		super(SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
+		super(FhirContext.forR4(), SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
 	}
 
 	@Override
 	protected ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> getProviders() {
+		return null;
+
+		/*
 		ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map = new ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider>();
 		map.put(ServerConfiguration.class, this);
 		map.put(PatientService.class, patientService);
 		map.put(PractitionerService.class, practitionerService);
+
+		getInterceptorService().registerInterceptor(new TenantIdInterceptor());
 		return map;
+
+		 */
 	}
+
 }
