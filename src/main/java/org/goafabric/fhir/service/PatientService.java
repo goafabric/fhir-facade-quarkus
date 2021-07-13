@@ -8,8 +8,6 @@ import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.param.StringParam;
-import ca.uhn.fhir.rest.server.FifoMemoryPagingProvider;
-import ca.uhn.fhir.rest.server.IPagingProvider;
 import org.goafabric.fhir.logic.PatientLogic;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Patient;
@@ -30,30 +28,17 @@ import java.util.List;
 public class PatientService extends AbstractJaxRsResourceProvider<Patient> {
 	static final String PATH = "/Patient";
 
-	public static final IPagingProvider PAGE_PROVIDER;
-
 	@Inject
 	PatientLogic patientLogic;
-
-	
-	static {
-		PAGE_PROVIDER = new FifoMemoryPagingProvider(10);
-	}
 
 	public PatientService() {
 		super(FhirContext.forR4(), PatientService.class);
 	}
 
 	@Override
-	public IPagingProvider getPagingProvider() {
-		return PAGE_PROVIDER;
-	}
-
-	@Override
 	public Class<Patient> getResourceType() {
 		return Patient.class;
 	}
-
 
 	@Read
 	public Patient getPatient(@IdParam final IdType idType) {

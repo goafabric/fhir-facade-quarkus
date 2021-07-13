@@ -8,8 +8,6 @@ import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.param.StringParam;
-import ca.uhn.fhir.rest.server.FifoMemoryPagingProvider;
-import ca.uhn.fhir.rest.server.IPagingProvider;
 import org.goafabric.fhir.logic.PractitionerLogic;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
@@ -30,22 +28,11 @@ import java.util.List;
 public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
 	static final String PATH = "/Practitioner";
 
-	public static final IPagingProvider PAGE_PROVIDER;
-
 	@Inject
 	PractitionerLogic PractitionerLogic;
 
-	static {
-		PAGE_PROVIDER = new FifoMemoryPagingProvider(10);
-	}
-
 	public PractitionerService() {
 		super(FhirContext.forR4(), PractitionerService.class);
-	}
-
-	@Override
-	public IPagingProvider getPagingProvider() {
-		return PAGE_PROVIDER;
 	}
 
 	@Override
