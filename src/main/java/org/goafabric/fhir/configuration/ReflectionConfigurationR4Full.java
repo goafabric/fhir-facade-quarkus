@@ -11,24 +11,27 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        //R4 model classes
+        //R4 Context classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
 
+        //R4 model classes
         /*
-        Identifier.class,
-        HumanName.class,
-        ContactPoint.class,
-        DateType.class,
-        Type.class,
         Address.class,
-        CodeableConcept.class,
         Attachment.class,
-        Reference.class,
-        Resource.class,
-        Organization.class,
         BackboneElement.class,
         BackboneType.class,
-         */
+        CodeableConcept.class,
+        ContactPoint.class,
+        DateType.class,
+        Identifier.class,
+        HumanName.class,
+        Organization.class,
+        Reference.class,
+        Resource.class,
+        StructureDefinition.class,
+        Type.class
+        */
+
 
         Account.class,
         ActivityDefinition.class,
@@ -269,8 +272,7 @@ import org.hl7.fhir.r4.model.*;
         UuidType.class,
         ValueSet.class,
         VerificationResult.class,
-        VisionPrescription.class,
-        XhtmlType.class
+        VisionPrescription.class
         })
-public class ReflectionConfiguration {
+public class ReflectionConfigurationR4Full {
 }
