@@ -47,7 +47,14 @@ import org.hl7.fhir.r4.model.*;
         BiologicallyDerivedProduct.class,
         BodyStructure.class,
         BooleanType.class,
+
         Bundle.class,
+        Bundle.BundleEntryComponent.class,
+        Bundle.BundleLinkComponent.class,
+        Bundle.BundleEntrySearchComponent.class,
+        Bundle.BundleEntryRequestComponent.class,
+        Bundle.BundleEntryResponseComponent.class,
+
         CanonicalType.class,
         CapabilityStatement.class,
         CarePlan.class,
@@ -183,7 +190,12 @@ import org.hl7.fhir.r4.model.*;
         OrganizationAffiliation.class,
         ParameterDefinition.class,
         Parameters.class,
+
         Patient.class,
+        Patient.PatientLinkComponent.class,
+        Patient.PatientCommunicationComponent.class,
+        Patient.ContactComponent.class,
+        
         PaymentNotice.class,
         PaymentReconciliation.class,
         Period.class,
@@ -192,6 +204,7 @@ import org.hl7.fhir.r4.model.*;
         Population.class,
         PositiveIntType.class,
         Practitioner.class,
+        Practitioner.PractitionerQualificationComponent.class,
         PractitionerRole.class,
         PrimitiveType.class,
         Procedure.class,

@@ -26,13 +26,29 @@ import org.hl7.fhir.r4.model.*;
         Attachment.class,
         BackboneElement.class,
         BackboneType.class,
+
         Bundle.class,
+        Bundle.BundleEntryComponent.class,
+        Bundle.BundleLinkComponent.class,
+        Bundle.BundleEntrySearchComponent.class,
+        Bundle.BundleEntryRequestComponent.class,
+        Bundle.BundleEntryResponseComponent.class,
+
         CodeableConcept.class,
         ContactPoint.class,
         DateType.class,
         Identifier.class,
         HumanName.class,
         Organization.class,
+
+        Patient.class,
+        Patient.PatientLinkComponent.class,
+        Patient.PatientCommunicationComponent.class,
+        Patient.ContactComponent.class,
+
+        Practitioner.class,
+        Practitioner.PractitionerQualificationComponent.class,
+
         Reference.class,
         Resource.class,
         StructureDefinition.class,
