@@ -21,4 +21,5 @@ public class PersonServiceRemoteAdapter implements PersonServiceAdapter {
     public Person sayMyName(String name) {
         return personServiceClient.sayMyName(name);
     }
+
 }
