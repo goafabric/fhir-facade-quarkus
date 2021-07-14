@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 //@ApplicationScoped
-//@Profile("mock")
 public class PersonServiceMockAdapter implements PersonServiceAdapter {
     @Override
     public Person getById(String id) {
