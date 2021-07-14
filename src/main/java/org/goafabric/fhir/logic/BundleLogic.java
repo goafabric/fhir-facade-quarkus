@@ -5,6 +5,7 @@ import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.goafabric.fhir.crossfunctional.DurationLog;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Resource;
@@ -14,6 +15,7 @@ import javax.enterprise.context.ApplicationScoped;
 @Slf4j
 @ApplicationScoped
 @RequiredArgsConstructor
+@DurationLog
 public class BundleLogic {
     final PatientLogic patientLogic;
 
