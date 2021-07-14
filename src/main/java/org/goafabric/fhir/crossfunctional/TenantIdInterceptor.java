@@ -1,25 +1,28 @@
 package org.goafabric.fhir.crossfunctional;
 
-import ca.uhn.fhir.interceptor.api.Hook;
-import ca.uhn.fhir.interceptor.api.Interceptor;
-import ca.uhn.fhir.interceptor.api.Pointcut;
-import ca.uhn.fhir.rest.api.server.RequestDetails;
 import lombok.extern.slf4j.Slf4j;
 
-@Interceptor
+import javax.ws.rs.container.ContainerRequestContext;
+import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.container.ContainerResponseContext;
+import javax.ws.rs.container.ContainerResponseFilter;
+import javax.ws.rs.ext.Provider;
+import java.io.IOException;
+
 @Slf4j
-public class TenantIdInterceptor {
+@Provider
+public class TenantIdInterceptor implements ContainerRequestFilter, ContainerResponseFilter {
     private static final ThreadLocal<String> tenantIdThreadLocal = new ThreadLocal<>();
 
-    @Hook(Pointcut.SERVER_INCOMING_REQUEST_PRE_HANDLED)
-    public void preHandle(RequestDetails request) {
-        final String tenantId = request.getHeader("X-TenantId");
-        log.debug("#interceptor got tenant id {}", tenantId);
-        tenantIdThreadLocal.set(request.getHeader("X-TenantId"));
+    @Override
+    public void filter(ContainerRequestContext request) throws IOException {
+        final String tenantId = request.getHeaderString("X-TenantId");
+        log.info("#interceptor got tenant id {}", tenantId);
+        tenantIdThreadLocal.set(request.getHeaderString("X-TenantId"));
     }
 
-    @Hook(Pointcut.SERVER_PROCESSING_COMPLETED)
-    public void afterCompletion(RequestDetails request) {
+    @Override
+    public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) throws IOException {
         tenantIdThreadLocal.remove();
     }
 
