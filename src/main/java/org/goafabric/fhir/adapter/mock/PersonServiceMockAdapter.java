@@ -4,11 +4,10 @@ import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 import org.goafabric.fhir.adapter.Person;
 import org.goafabric.fhir.adapter.PersonServiceAdapter;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.util.Arrays;
 import java.util.List;
 
-@ApplicationScoped
+//@ApplicationScoped
 //@Profile("mock")
 public class PersonServiceMockAdapter implements PersonServiceAdapter {
     @Override
