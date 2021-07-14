@@ -11,7 +11,7 @@ public class BaseUrlBean {
     @ConfigProperty(name = "adapter.personservice.url")
     String baseUrl;
 
-    @ConfigProperty(name = "multi.tenancy.enabled", defaultValue = "false")
+    @ConfigProperty(name = "multi.tenancy.enabled", defaultValue = "true")
     Boolean multiTenancyEnabled;
 
     public String getUrl() {
