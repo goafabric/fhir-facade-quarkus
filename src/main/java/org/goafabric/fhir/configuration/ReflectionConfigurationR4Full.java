@@ -11,9 +11,12 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        //R4 model classes
+        //R4 Context and Service classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        org.goafabric.fhir.service.PatientService.class,
+        org.goafabric.fhir.service.PractitionerService.class,
 
+        //R4 model classes
         Account.class,
         ActivityDefinition.class,
         Address.class,
@@ -253,8 +256,7 @@ import org.hl7.fhir.r4.model.*;
         UuidType.class,
         ValueSet.class,
         VerificationResult.class,
-        VisionPrescription.class,
-        XhtmlType.class
+        VisionPrescription.class
         })
-public class MyReflectionConfiguration {
+public class ReflectionConfigurationR4Full {
 }

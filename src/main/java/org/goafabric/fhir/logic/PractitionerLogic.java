@@ -3,6 +3,7 @@ package org.goafabric.fhir.logic;
 import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.param.StringParam;
+import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 import org.hl7.fhir.r4.model.HumanName;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
@@ -17,7 +18,7 @@ public class PractitionerLogic {
     @Read
     public Practitioner getPractitioner(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
-            throw new IllegalStateException("Practitioner not found");
+            throw new ResourceNotFoundException("Practitioner not found");
         }
 
         return createPractitioner(idType);
