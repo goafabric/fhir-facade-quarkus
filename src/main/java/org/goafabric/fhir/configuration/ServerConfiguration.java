@@ -4,6 +4,7 @@ import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import io.quarkus.runtime.Startup;
+import org.goafabric.fhir.service.BundleService;
 import org.goafabric.fhir.service.PatientService;
 import org.goafabric.fhir.service.PractitionerService;
 
@@ -33,6 +34,7 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 		map.put(ServerConfiguration.class, this);
 		addProvider(map, PatientService.class);
 		addProvider(map, PractitionerService.class);
+		addProvider(map, BundleService.class);
 		return map;
 	}
 

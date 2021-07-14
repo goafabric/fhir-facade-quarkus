@@ -1,5 +1,6 @@
 #1.0.1
-- TenantInterCeptor added
+- Crosscutting concerns added
+- BundleService and Adapter added
 
 #1.0.0
 - initial version

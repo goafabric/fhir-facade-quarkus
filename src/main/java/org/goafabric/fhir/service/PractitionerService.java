@@ -27,10 +27,10 @@ public class PractitionerService extends AbstractJaxRsResourceProvider<Practitio
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Practitioner";
 
 	@Inject
-	PractitionerLogic PractitionerLogic;
+	PractitionerLogic practitionerLogic;
 
 	public PractitionerService() {
-		super(FhirContext.forR4(), PractitionerService.class);
+		super(FhirContext.forR4());
 	}
 
 	@Override
@@ -40,14 +40,14 @@ public class PractitionerService extends AbstractJaxRsResourceProvider<Practitio
 
 	@Read
 	public Practitioner getPractitioner(@IdParam final IdType idType) {
-		return PractitionerLogic.getPractitioner(idType);
+		return practitionerLogic.getPractitioner(idType);
 	}
 
 	@Search
 	public List<Practitioner> findPractitioner(
 			@OptionalParam(name = Practitioner.SP_GIVEN) StringParam given,
 			@OptionalParam(name = Practitioner.SP_FAMILY) StringParam name) {
-		return PractitionerLogic.findPractitioner(name, given);
+		return practitionerLogic.findPractitioner(name, given);
 	}
 
 }
