@@ -3,8 +3,8 @@ version: "3.7"
 services:
   fhir-facade:
     container_name: ${_Values_root_name}-application
-    image:  ${_Values_image_repository}${_Values_server_arch}:${_Values_image_tag}
-#    image:  ${_Values_image_repository}:${_Values_image_tag}
+#    image:  ${_Values_image_repository}${_Values_server_arch}:${_Values_image_tag}
+    image:  ${_Values_image_repository}:${_Values_image_tag}
     restart: 'no'
     ports:
       - "${_Values_service_port}:${_Values_service_port}"
@@ -26,9 +26,14 @@ services:
       - quarkus.http.port=${_Values_service_port}
       - quarkus.http.io-threads=20
       #profile
-      - profiles.active=mock
+      - profiles.active=remote
       #security
       - security.authentication.enabled=true
+      #adapter
+      - adapter.personservice.url=http://host.docker.internal:50800
+      - adapter.personservice.user=YWRtaW4=
+      - adapter.personservice.password=YWRtaW4=
+      - adapter.timeout=10000
       #log levels
       - quarkus.log.level=INFO
       - quarkus.log.category."org.goafabric".level=INFO

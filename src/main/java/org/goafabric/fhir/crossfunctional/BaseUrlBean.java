@@ -1,3 +1,4 @@
+/*
 package org.goafabric.fhir.crossfunctional;
 
 import lombok.RequiredArgsConstructor;
@@ -26,3 +27,4 @@ public class BaseUrlBean {
         return "personservice-tenant-" + tenantId;
     }
 }
+*/

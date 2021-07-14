@@ -21,6 +21,7 @@ import org.hl7.fhir.r4.model.*;
         //R4 Context and Service classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
+        org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
 
         //R4 model classes
         Account.class,
