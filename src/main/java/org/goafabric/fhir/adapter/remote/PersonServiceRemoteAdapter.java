@@ -9,10 +9,13 @@ import org.goafabric.fhir.crossfunctional.BaseUrlBean;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RequiredArgsConstructor
 public class PersonServiceRemoteAdapter implements PersonServiceAdapter {
     final BaseUrlBean baseUrlBean;
+
+    private final ConcurrentHashMap<String, PersonServiceClient> clients = new ConcurrentHashMap<>();
 
     public Person getById(String id) {
         return getClient().getById(id);
@@ -28,7 +31,12 @@ public class PersonServiceRemoteAdapter implements PersonServiceAdapter {
 
     @SneakyThrows
     private PersonServiceClient getClient() {
-        return RestClientBuilder.newBuilder()
-                .baseUri(new URI(baseUrlBean.getUrl())).build(PersonServiceClient.class);
+        PersonServiceClient personServiceClient = clients.get(baseUrlBean.getUrl());
+        if (personServiceClient == null) {
+            personServiceClient = RestClientBuilder.newBuilder()
+                    .baseUri(new URI(baseUrlBean.getUrl())).build(PersonServiceClient.class);
+            clients.put(baseUrlBean.getUrl(), personServiceClient);
+        }
+        return personServiceClient;
     }
 }
