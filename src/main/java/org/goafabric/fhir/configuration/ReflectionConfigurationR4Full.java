@@ -23,8 +23,6 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.model.OperationOutcome.class,
         org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueTypeEnumFactory.class,
-        org.hl7.fhir.r4.model.OperationOutcome.IssueType.class,
-        org.hl7.fhir.r4.model.OperationOutcome.IssueSeverity.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueSeverityEnumFactory.class,
         
         //R4 model classes
