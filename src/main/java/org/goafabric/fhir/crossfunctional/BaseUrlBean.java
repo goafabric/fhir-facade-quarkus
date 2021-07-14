@@ -1,17 +1,13 @@
 package org.goafabric.fhir.crossfunctional;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-
-import javax.enterprise.context.ApplicationScoped;
+import lombok.RequiredArgsConstructor;
 
 
-@ApplicationScoped
+@RequiredArgsConstructor
 public class BaseUrlBean {
-    @ConfigProperty(name = "adapter.personservice.url")
-    String baseUrl;
+    final String baseUrl;
 
-    @ConfigProperty(name = "multi.tenancy.enabled", defaultValue = "false")
-    Boolean multiTenancyEnabled;
+    final Boolean multiTenancyEnabled;
 
     public String getUrl() {
         return multiTenancyEnabled
