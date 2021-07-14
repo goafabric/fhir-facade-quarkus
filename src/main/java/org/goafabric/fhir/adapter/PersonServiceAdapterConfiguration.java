@@ -16,6 +16,9 @@ public class PersonServiceAdapterConfiguration {
     @ConfigProperty(name = "profiles.active", defaultValue = "")
     String profilesActive;
 
+    @ConfigProperty(name = "adapter.personservice.url")
+    String baseUri;
+
     @Produces
     @ApplicationScoped
     @SneakyThrows
@@ -25,7 +28,7 @@ public class PersonServiceAdapterConfiguration {
             return new PersonServiceMockAdapter();
         } else if ("remote".equals(profilesActive)) {
             return new PersonServiceRemoteAdapter(
-                    RestClientBuilder.newBuilder().baseUri(new URI("http://localhost:50800")).build(PersonServiceClient.class));
+                    RestClientBuilder.newBuilder().baseUri(new URI(baseUri)).build(PersonServiceClient.class));
             //return new PersonServiceRemoteAdapterWrapper();
         } else {
             throw new IllegalStateException("unknown profile");
