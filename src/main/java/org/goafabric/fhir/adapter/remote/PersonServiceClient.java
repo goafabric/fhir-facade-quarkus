@@ -1,5 +1,7 @@
 package org.goafabric.fhir.adapter.remote;
 
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.goafabric.fhir.adapter.Person;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @Path("/persons")
 @Produces(MediaType.APPLICATION_JSON)
+@Timeout
+@CircuitBreaker
 @RegisterRestClient
 @RegisterClientHeaders(PersonServiceRemoteAdapterConfiguration.class)
 public interface PersonServiceClient {
