@@ -16,6 +16,7 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.goafabric.fhir.service.PatientService.class,
         org.goafabric.fhir.service.PractitionerService.class,
+        org.goafabric.fhir.service.BundleService.class,
 
         //R4 model classes
         Address.class,
