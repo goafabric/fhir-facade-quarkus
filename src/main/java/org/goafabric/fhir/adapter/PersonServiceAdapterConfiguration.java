@@ -1,12 +1,15 @@
-/*
 package org.goafabric.fhir.adapter;
 
+import lombok.SneakyThrows;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.goafabric.fhir.adapter.mock.PersonServiceMockAdapter;
+import org.goafabric.fhir.adapter.remote.PersonServiceClient;
 import org.goafabric.fhir.adapter.remote.PersonServiceRemoteAdapter;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.Produces;
+import java.net.URI;
 
 public class PersonServiceAdapterConfiguration {
 
@@ -15,14 +18,14 @@ public class PersonServiceAdapterConfiguration {
 
     @Produces
     @ApplicationScoped
+    @SneakyThrows
     public PersonServiceAdapter personServiceAdapter() {
         System.out.println(profilesActive);
         if ("mock".equals(profilesActive)) {
             return new PersonServiceMockAdapter();
         } else if ("remote".equals(profilesActive)) {
             return new PersonServiceRemoteAdapter(
-                    null);
-                    //RestClientBuilder.newBuilder().build(PersonServiceClient.class));
+                    RestClientBuilder.newBuilder().baseUri(new URI("http://localhost:50800")).build(PersonServiceClient.class));
             //return new PersonServiceRemoteAdapterWrapper();
         } else {
             throw new IllegalStateException("unknown profile");
@@ -30,4 +33,3 @@ public class PersonServiceAdapterConfiguration {
     }
 }
 
- */

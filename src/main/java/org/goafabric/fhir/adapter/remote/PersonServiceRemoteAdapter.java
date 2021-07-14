@@ -1,18 +1,14 @@
 package org.goafabric.fhir.adapter.remote;
 
-import org.eclipse.microprofile.rest.client.inject.RestClient;
+import lombok.RequiredArgsConstructor;
 import org.goafabric.fhir.adapter.Person;
 import org.goafabric.fhir.adapter.PersonServiceAdapter;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.util.List;
 
-@ApplicationScoped
+@RequiredArgsConstructor
 public class PersonServiceRemoteAdapter implements PersonServiceAdapter {
-    @Inject
-    @RestClient
-    PersonServiceClient personServiceClient;
+    final PersonServiceClient personServiceClient;
 
     public Person getById(String id) {
         return personServiceClient.getById(id);

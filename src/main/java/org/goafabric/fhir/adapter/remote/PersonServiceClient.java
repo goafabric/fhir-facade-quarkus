@@ -12,8 +12,6 @@ import java.util.List;
 @Path("/persons")
 @Produces(MediaType.APPLICATION_JSON)
 @RegisterRestClient
-//@Timeout
-//@CircuitBreaker
 @RegisterClientHeaders(PersonServiceRemoteAdapterConfiguration.class)
 public interface PersonServiceClient {
     @GET
