@@ -7,6 +7,7 @@ import ca.uhn.fhir.rest.annotation.OptionalParam;
 import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.param.StringParam;
+import org.goafabric.fhir.configuration.ServerConfiguration;
 import org.goafabric.fhir.logic.PractitionerLogic;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
@@ -23,7 +24,7 @@ import java.util.List;
 //@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 @ApplicationScoped
 public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
-	static final String PATH = "/Practitioner";
+	static final String PATH = ServerConfiguration.ROOT_PATH + "/Practitioner";
 
 	@Inject
 	PractitionerLogic PractitionerLogic;

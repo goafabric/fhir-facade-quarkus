@@ -7,6 +7,7 @@ import ca.uhn.fhir.rest.annotation.OptionalParam;
 import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.param.StringParam;
+import org.goafabric.fhir.configuration.ServerConfiguration;
 import org.goafabric.fhir.logic.PatientLogic;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Patient;
@@ -23,7 +24,7 @@ import java.util.List;
 //@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 @ApplicationScoped
 public class PatientService extends AbstractJaxRsResourceProvider<Patient> {
-	static final String PATH = "/Patient";
+	static final String PATH = ServerConfiguration.ROOT_PATH + "/Patient";
 
 	@Inject
 	PatientLogic patientLogic;
