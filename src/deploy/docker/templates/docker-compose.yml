@@ -25,6 +25,7 @@ services:
       - TZ=Europe/Berlin
       - quarkus.http.port=${_Values_service_port}
       - quarkus.http.io-threads=20
+      #profile
       - profiles.active=mock
       #security
       - security.authentication.enabled=true
