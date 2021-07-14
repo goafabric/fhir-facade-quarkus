@@ -30,7 +30,7 @@ public class PractitionerService extends AbstractJaxRsResourceProvider<Practitio
 	PractitionerLogic PractitionerLogic;
 
 	public PractitionerService() {
-		super(FhirContext.forR4(), PractitionerService.class);
+		super(FhirContext.forR4());
 	}
 
 	@Override

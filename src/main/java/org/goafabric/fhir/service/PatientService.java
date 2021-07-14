@@ -30,7 +30,7 @@ public class PatientService extends AbstractJaxRsResourceProvider<Patient> {
 	PatientLogic patientLogic;
 
 	public PatientService() {
-		super(FhirContext.forR4(), PatientService.class);
+		super(FhirContext.forR4());
 	}
 
 	@Override

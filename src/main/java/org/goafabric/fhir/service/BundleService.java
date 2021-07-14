@@ -25,7 +25,7 @@ public class BundleService extends AbstractJaxRsResourceProvider<Bundle> {
     BundleLogic bundleLogic;
 
     public BundleService() {
-        super(FhirContext.forR4(), BundleService.class);
+        super(FhirContext.forR4());
     }
 
     @Override
