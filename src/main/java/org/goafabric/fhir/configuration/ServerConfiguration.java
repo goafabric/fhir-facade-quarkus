@@ -8,7 +8,7 @@ import org.goafabric.fhir.service.PatientService;
 import org.goafabric.fhir.service.PractitionerService;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.Path;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -23,9 +23,6 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 
 	public static final String ROOT_PATH = "/fhir";
 	
-    @Inject PatientService patientService;
-	@Inject PractitionerService practitionerService;
-
 	public ServerConfiguration() {
 		super(FhirContext.forR4(), SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
 	}
@@ -34,9 +31,13 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 	protected ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> getProviders() {
 		ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map = new ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider>();
 		map.put(ServerConfiguration.class, this);
-		map.put(PatientService.class, patientService);
-		map.put(PractitionerService.class, practitionerService);
+		addProvider(map, PatientService.class);
+		addProvider(map, PractitionerService.class);
 		return map;
+	}
+
+	private void addProvider(ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map, Class clazz) {
+		map.put(clazz, (IResourceProvider) CDI.current().select(clazz).get());
 	}
 
 	public String getBaseForServer() {

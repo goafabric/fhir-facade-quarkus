@@ -1,6 +1,7 @@
 package org.goafabric.fhir.service;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.goafabric.fhir.configuration.ServerConfiguration;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -11,7 +12,7 @@ public class PatientServiceTest {
     @Test
     public void getPatient() {
         given()
-          .when().get("/Patient/1")
+          .when().get(ServerConfiguration.ROOT_PATH + "/Patient/1")
           .then()
              .statusCode(200);
     }
