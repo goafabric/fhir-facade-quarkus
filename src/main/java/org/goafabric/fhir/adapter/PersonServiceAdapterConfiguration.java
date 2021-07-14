@@ -2,7 +2,7 @@ package org.goafabric.fhir.adapter;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.goafabric.fhir.adapter.mock.PersonServiceMockAdapter;
-import org.goafabric.fhir.adapter.remote.PersonServiceRemoteAdapter;
+import org.goafabric.fhir.adapter.remote.PersonServiceRemoteAdapterWrapper;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.Produces;
@@ -20,7 +20,7 @@ public class PersonServiceAdapterConfiguration {
         if ("mock".equals(profilesActive)) {
             return new PersonServiceMockAdapter();
         } else if ("remote".equals(profilesActive)) {
-            return new PersonServiceRemoteAdapter();
+            return new PersonServiceRemoteAdapterWrapper();
         } else {
             throw new IllegalStateException("unknown profile");
         }
