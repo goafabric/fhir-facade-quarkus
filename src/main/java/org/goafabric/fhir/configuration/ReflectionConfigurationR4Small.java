@@ -12,14 +12,17 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        //R4 Context classes
+        //R4 Context and Service classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        org.goafabric.fhir.service.PatientService.class,
+        org.goafabric.fhir.service.PractitionerService.class,
 
         //R4 model classes
         Address.class,
         Attachment.class,
         BackboneElement.class,
         BackboneType.class,
+        Bundle.class,
         CodeableConcept.class,
         ContactPoint.class,
         DateType.class,
