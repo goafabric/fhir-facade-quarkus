@@ -6,7 +6,6 @@ import ca.uhn.fhir.rest.annotation.IdParam;
 import ca.uhn.fhir.rest.annotation.OptionalParam;
 import ca.uhn.fhir.rest.annotation.Read;
 import ca.uhn.fhir.rest.annotation.Search;
-import ca.uhn.fhir.rest.api.Constants;
 import ca.uhn.fhir.rest.param.StringParam;
 import org.goafabric.fhir.logic.PractitionerLogic;
 import org.hl7.fhir.r4.model.IdType;
@@ -15,15 +14,13 @@ import org.hl7.fhir.r4.model.Practitioner;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
  * A demo JaxRs Practitioner Rest Provider
  */
 @Path(PractitionerService.PATH)
-@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
+//@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 @ApplicationScoped
 public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
 	static final String PATH = "/Practitioner";

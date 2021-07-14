@@ -37,12 +37,10 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 		map.put(ServerConfiguration.class, this);
 		map.put(PatientService.class, patientService);
 		map.put(PractitionerService.class, practitionerService);
-
-		//getInterceptorService().registerInterceptor(new TenantIdInterceptor());
 		return map;
 	}
 
 	public String getBaseForServer() {
-		return "/fhir";
+		return "/";
 	}
 }
