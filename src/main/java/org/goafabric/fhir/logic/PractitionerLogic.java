@@ -1,44 +1,34 @@
 package org.goafabric.fhir.logic;
 
-import ca.uhn.fhir.rest.annotation.Read;
-import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.param.StringParam;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
-import org.hl7.fhir.r4.model.HumanName;
+import lombok.RequiredArgsConstructor;
+import org.goafabric.fhir.adapter.PersonServiceAdapter;
+import org.goafabric.fhir.logic.mapper.PractionerMapper;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
-import org.hl7.fhir.r4.model.StringType;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.Arrays;
 import java.util.List;
 
 @ApplicationScoped
+@RequiredArgsConstructor
 public class PractitionerLogic {
-    @Read
+    final PersonServiceAdapter personServiceAdapter;
+
     public Practitioner getPractitioner(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
-            throw new ResourceNotFoundException("Practitioner not found");
+            throw new ResourceNotFoundException("practioner not found");
         }
 
-        return createPractitioner(idType);
+        return PractionerMapper.map(
+                personServiceAdapter.findByFirstName("Monty").get(0));
     }
 
-
-    @Search
     public List<Practitioner> findPractitioner(StringParam given,
-                                     StringParam name) {
-        return Arrays.asList(createPractitioner(new IdType()));
+                                               StringParam name) {
+        return PractionerMapper.map(
+                personServiceAdapter.findByFirstName("Monty"));
     }
 
-    private Practitioner createPractitioner(IdType idType) {
-        final Practitioner Practitioner = new Practitioner();
-        Practitioner.setId(idType);
-        Practitioner.setName(
-                Arrays.asList(new HumanName()
-                        .setGiven(Arrays.asList(new StringType("Monty")))
-                        .setFamily("Burns"))
-        );
-        return Practitioner;
-    }
 }

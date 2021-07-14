@@ -1,44 +1,36 @@
 package org.goafabric.fhir.logic;
 
-import ca.uhn.fhir.rest.annotation.Read;
-import ca.uhn.fhir.rest.annotation.Search;
 import ca.uhn.fhir.rest.param.StringParam;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
-import org.hl7.fhir.r4.model.HumanName;
+import lombok.RequiredArgsConstructor;
+import org.goafabric.fhir.adapter.PersonServiceAdapter;
+import org.goafabric.fhir.logic.mapper.PatientMapper;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Patient;
-import org.hl7.fhir.r4.model.StringType;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.Arrays;
 import java.util.List;
 
 @ApplicationScoped
+@RequiredArgsConstructor
 public class PatientLogic {
-    @Read
+    final PersonServiceAdapter personServiceAdapter;
+
     public Patient getPatient(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
             throw new ResourceNotFoundException("patient not found");
         }
 
-        return createPatient(idType);
+        personServiceAdapter.sayMyName("Homer"); //just for showcasing
+        
+        return PatientMapper.map(
+                personServiceAdapter.findByFirstName("Homer").get(0));
     }
 
-
-    @Search
     public List<Patient> findPatient(StringParam given,
                                      StringParam name) {
-        return Arrays.asList(createPatient(new IdType()));
+        return PatientMapper.map(
+                personServiceAdapter.findByFirstName("Homer"));
     }
 
-    private Patient createPatient(IdType idType) {
-        final Patient patient = new Patient();
-        patient.setId(idType);
-        patient.setName(
-                Arrays.asList(new HumanName()
-                        .setGiven(Arrays.asList(new StringType("Homer")))
-                        .setFamily("Simpson"))
-        );
-        return patient;
-    }
 }

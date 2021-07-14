@@ -3,22 +3,21 @@ package org.goafabric.fhir.logic;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Resource;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
-@ApplicationScoped
 @Slf4j
+@ApplicationScoped
+@RequiredArgsConstructor
 public class BundleLogic {
-    @Inject
-    PatientLogic patientLogic;
+    final PatientLogic patientLogic;
 
-    @Inject
-    PractitionerLogic practitionerLogic;
+    final PractitionerLogic practitionerLogic;
 
     public Bundle getBundle(IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
