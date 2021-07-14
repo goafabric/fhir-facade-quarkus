@@ -5,12 +5,9 @@ import org.goafabric.fhir.adapter.PersonServiceAdapter;
 
 import javax.enterprise.inject.spi.CDI;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class PersonServiceRemoteAdapter implements PersonServiceAdapter {
-
-    private final ConcurrentHashMap<String, PersonServiceClient> clients = new ConcurrentHashMap<>();
-
+    
     public Person getById(String id) {
         return getClient().getById(id);
     }
