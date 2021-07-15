@@ -1,4 +1,5 @@
 #1.0.3
+- Multi Tenancy Client Adapters implemented
 
 #1.0.2
 - Metadata fixed
