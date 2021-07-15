@@ -28,7 +28,6 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.model.CapabilityStatement.class,
 
         //R4 Metadata classes
-        /*
         org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementDocumentComponent.class,
         org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingSupportedMessageComponent.class,
         org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent.class,
@@ -53,7 +52,6 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteractionEnumFactory.class,
         org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityModeEnumFactory.class,
         org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementKindEnumFactory.class,
-        */
 
         //R4 model classes
         Account.class,
