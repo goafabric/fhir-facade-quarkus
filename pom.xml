@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <quarkus.native.native-image-xmx>6000m</quarkus.native.native-image-xmx>
+        <quarkus.native.native-image-xmx>6500m</quarkus.native.native-image-xmx>
     </properties>
 
     <dependencies>
