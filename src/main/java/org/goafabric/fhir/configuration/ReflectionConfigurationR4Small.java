@@ -19,13 +19,14 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        //R4 Context and Service classes
-        org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        //R4 Context and Base classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
         org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueTypeEnumFactory.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueSeverityEnumFactory.class,
+
+        org.hl7.fhir.r4.model.CapabilityStatement.class,
 
         //R4 model classes
         Address.class,
