@@ -2,7 +2,6 @@ package org.goafabric.fhir.logic;
 
 import ca.uhn.fhir.rest.param.StringParam;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
-import lombok.RequiredArgsConstructor;
 import org.goafabric.fhir.adapter.PersonServiceAdapter;
 import org.goafabric.fhir.crossfunctional.DurationLog;
 import org.goafabric.fhir.logic.mapper.PractionerMapper;
@@ -10,13 +9,14 @@ import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.List;
 
 @ApplicationScoped
-@RequiredArgsConstructor
 @DurationLog
 public class PractitionerLogic {
-    final PersonServiceAdapter personServiceAdapter;
+    @Inject
+    PersonServiceAdapter personServiceAdapter;
 
     public Practitioner getPractitioner(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
