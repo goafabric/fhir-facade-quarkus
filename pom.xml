@@ -48,7 +48,7 @@
 
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
+            <artifactId>quarkus-smallrye-metrics</artifactId>
         </dependency>
 
         <!-- adapter -->
@@ -62,12 +62,10 @@
             <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
 
-        <!--
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
         </dependency>
-        -->
 
         <!-- hapi -->
         <dependency>
