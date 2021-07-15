@@ -18,13 +18,41 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
-        //R4 Context and Service classes
+        //R4 Context and Base classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
         org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueTypeEnumFactory.class,
         org.hl7.fhir.r4.model.OperationOutcome.IssueSeverityEnumFactory.class,
         
+        org.hl7.fhir.r4.model.CapabilityStatement.class,
+
+        //R4 Metadata classes
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementDocumentComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingSupportedMessageComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEndpointComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.SystemInteractionComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.ResourceInteractionComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementImplementationComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementSoftwareComponent.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.DocumentModeEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.DocumentModeEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.EventCapabilityModeEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.SystemRestfulInteractionEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.ReferenceHandlingPolicyEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.ConditionalDeleteStatusEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.ConditionalReadStatusEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.ResourceVersionPolicyEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteractionEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityModeEnumFactory.class,
+        org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementKindEnumFactory.class,
+
         //R4 model classes
         Account.class,
         ActivityDefinition.class,
