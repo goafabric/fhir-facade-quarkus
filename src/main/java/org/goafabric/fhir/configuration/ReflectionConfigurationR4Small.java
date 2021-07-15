@@ -9,6 +9,7 @@ import org.hl7.fhir.r4.model.*;
         ca.uhn.fhir.context.FhirVersionEnum.class,
         org.hl7.fhir.utilities.xhtml.XhtmlNode.class,
         ca.uhn.fhir.rest.api.server.IFhirVersionServer.class,
+        ca.uhn.fhir.rest.api.MethodOutcome.class,
 
         //Service Classes needed for Metadata
         org.goafabric.fhir.service.PatientService.class,
@@ -20,6 +21,11 @@ import org.hl7.fhir.r4.model.*;
 
         //R4 Context and Service classes
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
+        org.hl7.fhir.r4.model.OperationOutcome.class,
+        org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
+        org.hl7.fhir.r4.model.OperationOutcome.IssueTypeEnumFactory.class,
+        org.hl7.fhir.r4.model.OperationOutcome.IssueSeverityEnumFactory.class,
 
         //R4 model classes
         Address.class,
