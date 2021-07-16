@@ -6,5 +6,6 @@
   
 - Circuitbreaker
 - Tracing
-- FHIR Client
+  
+- FHIR Client, Spring Native FHIR
 
