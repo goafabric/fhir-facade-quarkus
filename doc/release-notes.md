@@ -1,3 +1,5 @@
+#1.0.5
+
 #1.0.4
 - Upgrade to Quarkus 2.0.2
 - Memory usage redueced by initializing R4Context once
