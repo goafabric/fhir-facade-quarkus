@@ -1,6 +1,5 @@
 package org.goafabric.fhir.service;
 
-import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import ca.uhn.fhir.rest.annotation.IdParam;
 import ca.uhn.fhir.rest.annotation.OptionalParam;
@@ -30,7 +29,7 @@ public class PractitionerService extends AbstractJaxRsResourceProvider<Practitio
 	PractitionerLogic practitionerLogic;
 
 	public PractitionerService() {
-		super(FhirContext.forR4());
+		super(ServerConfiguration.getFhirContextR4());
 	}
 
 	@Override

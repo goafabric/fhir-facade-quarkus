@@ -23,9 +23,11 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 	private static final String SERVER_NAME = "FHIR Facade";
 
 	public static final String ROOT_PATH = "/fhir";
-	
+
+	private static final FhirContext fhirContext = FhirContext.forR4();
+
 	public ServerConfiguration() {
-		super(FhirContext.forR4(), SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
+		super(getFhirContextR4(), SERVER_DESCRIPTION, SERVER_NAME, SERVER_VERSION);
 	}
 
 	@Override
@@ -42,7 +44,12 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 		map.put(clazz, (IResourceProvider) CDI.current().select(clazz).get());
 	}
 
+	@Override
 	public String getBaseForServer() {
 		return "/";
+	}
+
+	public static FhirContext getFhirContextR4() {
+		return fhirContext;
 	}
 }

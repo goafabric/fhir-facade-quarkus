@@ -1,6 +1,5 @@
 package org.goafabric.fhir.service;
 
-import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import ca.uhn.fhir.rest.annotation.Create;
 import ca.uhn.fhir.rest.annotation.IdParam;
@@ -25,7 +24,7 @@ public class BundleService extends AbstractJaxRsResourceProvider<Bundle> {
     BundleLogic bundleLogic;
 
     public BundleService() {
-        super(FhirContext.forR4());
+        super(ServerConfiguration.getFhirContextR4());
     }
 
     @Override
