@@ -34,8 +34,6 @@ services:
       - adapter.personservice.user=YWRtaW4=
       - adapter.personservice.password=YWRtaW4=
       - adapter.timeout=10000
-      #jaeger
-      - quarkus.jaeger.endpoint=http://host.docker.internal:14268/api/traces
       #log levels
       - quarkus.log.level=INFO
       - quarkus.log.category."org.goafabric".level=INFO
