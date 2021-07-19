@@ -2,7 +2,7 @@
 
 #1.0.4
 - Upgrade to Quarkus 2.0.2
-- Memory usage redueced by initializing R4Context once
+- Memory usage reduced by initializing R4Context once
 - Jaeger Tracing added
 
 #1.0.3
