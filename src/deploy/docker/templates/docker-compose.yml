@@ -34,11 +34,14 @@ services:
       - adapter.personservice.user=YWRtaW4=
       - adapter.personservice.password=YWRtaW4=
       - adapter.timeout=10000
+      #jaeger
+      - quarkus.jaeger.endpoint=http://host.docker.internal:14268/api/traces
       #log levels
       - quarkus.log.level=INFO
       - quarkus.log.category."org.goafabric".level=INFO
       - quarkus.log.category."org.flywaydb.core".level=INFO
       - quarkus.log.category."org.hibernate".level=INFO
+      - quarkus.log.category."io.jaegertracing".level=DEBUG
       #log file settings
       - quarkus.log.file.enable=true
       - quarkus.log.file.rotation.max-file-size=10M
