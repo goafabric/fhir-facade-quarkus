@@ -2,6 +2,6 @@
 git pull
 time mvn -B clean install -P docker-image-native
 
-docker pull goafabric/fhir-facade-quarkus:1.0.5-SNAPSHOT && docker run --name fhir-facade-quarkus --rm -p50700:50700 goafabric/fhir-facade-quarkus:1.0.5-SNAPSHOT -Xm32m
+docker pull goafabric/fhir-facade-quarkus:1.0.6-SNAPSHOT && docker run --name fhir-facade-quarkus --rm -p50700:50700 goafabric/fhir-facade-quarkus:1.0.6-SNAPSHOT -Xm32m
 
 
