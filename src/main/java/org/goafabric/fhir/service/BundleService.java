@@ -11,12 +11,10 @@ import org.goafabric.fhir.logic.BundleLogic;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.IdType;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 
 @Path(BundleService.PATH)
-@ApplicationScoped
 public class BundleService extends AbstractJaxRsResourceProvider<Bundle> {
     static final String PATH = ServerConfiguration.ROOT_PATH + "/Bundle";
 

@@ -11,7 +11,6 @@ import org.goafabric.fhir.logic.PractitionerLogic;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 import java.util.List;
@@ -21,7 +20,6 @@ import java.util.List;
  */
 @Path(PractitionerService.PATH)
 //@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
-@ApplicationScoped
 public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Practitioner";
 
