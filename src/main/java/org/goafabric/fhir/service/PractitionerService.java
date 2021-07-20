@@ -19,7 +19,6 @@ import java.util.List;
  * A demo JaxRs Practitioner Rest Provider
  */
 @Path(PractitionerService.PATH)
-//@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Practitioner";
 

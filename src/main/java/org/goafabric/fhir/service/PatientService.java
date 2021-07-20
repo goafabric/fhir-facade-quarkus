@@ -19,7 +19,6 @@ import java.util.List;
  * A demo JaxRs Patient Rest Provider
  */
 @Path(PatientService.PATH)
-//@Produces({ MediaType.APPLICATION_JSON, Constants.CT_FHIR_JSON, Constants.CT_FHIR_XML })
 public class PatientService extends AbstractJaxRsResourceProvider<Patient> {
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Patient";
 
