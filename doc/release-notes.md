@@ -1,4 +1,5 @@
 #1.0.5
+- Jaeger Opentracing fixed
 
 #1.0.4
 - Upgrade to Quarkus 2.0.2
