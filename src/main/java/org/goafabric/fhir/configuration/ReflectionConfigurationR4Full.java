@@ -53,7 +53,7 @@ import org.hl7.fhir.r4.model.*;
         org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityModeEnumFactory.class,
         org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementKindEnumFactory.class,
 
-        //R4 model classes
+        //R4 model all classes
         Account.class,
         ActivityDefinition.class,
         Address.class,
@@ -307,6 +307,41 @@ import org.hl7.fhir.r4.model.*;
         ValueSet.class,
         VerificationResult.class,
         VisionPrescription.class
+
+        //R4 model basic classes
+        /*
+        Address.class,
+        Attachment.class,
+        BackboneElement.class,
+        BackboneType.class,
+
+        Bundle.class,
+        Bundle.BundleEntryComponent.class,
+        Bundle.BundleLinkComponent.class,
+        Bundle.BundleEntrySearchComponent.class,
+        Bundle.BundleEntryRequestComponent.class,
+        Bundle.BundleEntryResponseComponent.class,
+
+        CodeableConcept.class,
+        ContactPoint.class,
+        DateType.class,
+        Identifier.class,
+        HumanName.class,
+        Organization.class,
+
+        Patient.class,
+        Patient.PatientLinkComponent.class,
+        Patient.PatientCommunicationComponent.class,
+        Patient.ContactComponent.class,
+
+        Practitioner.class,
+        Practitioner.PractitionerQualificationComponent.class,
+
+        Reference.class,
+        Resource.class,
+        StructureDefinition.class,
+        Type.class
+         */
         })
 public class ReflectionConfigurationR4Full {
 }
