@@ -44,7 +44,7 @@ public class BundleLogic {
     }
 
     public MethodOutcome createBundle(Bundle bundle) {
-        log.info(FhirContext.forR4().newJsonParser().encodeResourceToString(bundle));
+        log.info(FhirContext.forR4().newJsonParser().setPrettyPrint(true).encodeResourceToString(bundle));
         return new MethodOutcome();
     }
 }
