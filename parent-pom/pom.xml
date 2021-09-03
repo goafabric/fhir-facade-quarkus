@@ -6,7 +6,7 @@
 
     <groupId>org.goafabric</groupId>
     <artifactId>quarkus-parent</artifactId>
-    <version>2.0.2</version>
+    <version>2.2.1</version>
     <packaging>pom</packaging>
     <name>quarkus parent pom</name>
     <description>quarkus parent pom</description>
@@ -23,26 +23,31 @@
         <docker.registry>docker.io/goafabric</docker.registry>
 
         <!-- Quarkus -->
-        <quarkus-plugin.version>2.0.2.Final</quarkus-plugin.version>
-        <quarkus.platform.version>2.0.2.Final</quarkus.platform.version>
+        <quarkus-plugin.version>2.2.1.Final</quarkus-plugin.version>
+        <quarkus.platform.version>2.2.1.Final</quarkus.platform.version>
 
         <!-- 3rd party -->
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
+        <jasypt.version>1.9.3</jasypt.version>
 
         <!-- Build -->
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven-surefire-plugin.version>${exec-maven-plugin.version}-M5</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+
+        <!-- Deploy disabled here-->
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-universe-bom</artifactId>
+                <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -60,9 +65,21 @@
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt-hibernate5</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <build>
         <pluginManagement>
             <plugins>
@@ -129,6 +146,24 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                                <maven.home>${maven.home}</maven.home>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -180,7 +215,7 @@
                         <executions>
                             <execution>
                                 <id>docker push</id>
-                                <phase>install</phase>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
@@ -202,7 +237,7 @@
             <properties>
                 <quarkus.container-image.push>false</quarkus.container-image.push>
                 <quarkus.container-image.image>${docker.registry}/${project.artifactId}-arm64v8:${project.version}</quarkus.container-image.image>
-                <quarkus.native.builder-image>goafabric/quarkus-build-aarch64:java11-21.1.0</quarkus.native.builder-image>
+                <quarkus.native.builder-image>goafabric/quarkus-build-aarch64:java11-21.2.0</quarkus.native.builder-image>
                 <quarkus.jib.platforms>linux/arm64/v8</quarkus.jib.platforms>
             </properties>
         </profile>
