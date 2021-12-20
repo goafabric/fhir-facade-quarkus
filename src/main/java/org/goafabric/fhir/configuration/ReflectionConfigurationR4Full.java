@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.model.*;
         ca.uhn.fhir.rest.api.server.IFhirVersionServer.class,
         ca.uhn.fhir.rest.api.MethodOutcome.class,
 
+
         //Service Classes needed for Metadata
         org.goafabric.fhir.service.PatientService.class,
         org.goafabric.fhir.service.PractitionerService.class,
@@ -19,6 +20,8 @@ import org.hl7.fhir.r4.model.*;
         ca.uhn.fhir.rest.param.StringParam.class,
 
         //R4 Context and Base classes
+        org.hl7.fhir.r4.model.Enumerations.FHIRVersionEnumFactory.class,
+
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
         org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,
