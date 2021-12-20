@@ -19,11 +19,11 @@ import org.hl7.fhir.r4.model.*;
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,
 
+        //New R4 Classes in 5.6+
+        //org.hl7.fhir.r4.model.Enumerations.FHIRVersionEnumFactory.class,
+        //org.hl7.fhir.r4.model.Enumerations.PublicationStatusEnumFactory.class,
+
         //R4 Context and Base classes
-        org.hl7.fhir.r4.model.Enumerations.FHIRVersionEnumFactory.class,
-        org.hl7.fhir.r4.model.Enumerations.PublicationStatusEnumFactory.class,
-
-
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
         org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent.class,

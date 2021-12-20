@@ -16,7 +16,7 @@
 
     <properties>
         <quarkus.native.native-image-xmx>6500m</quarkus.native.native-image-xmx>
-        <hapi-fhir-jaxrsserver-base.version>5.3.0</hapi-fhir-jaxrsserver-base.version>
+        <hapi-fhir-jaxrsserver-base.version>5.5.0</hapi-fhir-jaxrsserver-base.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
     </properties>
 
