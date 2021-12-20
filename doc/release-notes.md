@@ -1,6 +1,7 @@
-#1.0.6
-- Upgrade to Quarkus 2.2.1
-- 
+#1.1.0
+- Upgrade to HAPI FHIR 5.6.0
+- Upgrade to Quarkus 2.5.3
+
 #1.0.5
 - Jaeger Opentracing fixed
 
