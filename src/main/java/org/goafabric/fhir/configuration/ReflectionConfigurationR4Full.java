@@ -21,6 +21,8 @@ import org.hl7.fhir.r4.model.*;
 
         //R4 Context and Base classes
         org.hl7.fhir.r4.model.Enumerations.FHIRVersionEnumFactory.class,
+        org.hl7.fhir.r4.model.Enumerations.PublicationStatusEnumFactory.class,
+
 
         org.hl7.fhir.r4.hapi.ctx.FhirR4.class,
         org.hl7.fhir.r4.model.OperationOutcome.class,
