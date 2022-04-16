@@ -1,6 +1,8 @@
 #1.1.0
-- Upgrade to HAPI FHIR 5.3.0
-- Upgrade to Quarkus 2.5.3
+- Upgrade to Quarkus 2.8.0
+- Upgrade to Lombok 1.18.22
+- Jaeger Tracing Connection Error Logging disabled
+- HttpInterceptor for Username and TenantId
 
 #1.0.5
 - Jaeger Opentracing fixed
