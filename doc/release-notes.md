@@ -1,4 +1,6 @@
-#1.1.0
+#1.1.2
+
+#1.1.1
 - Upgrade to Quarkus 2.8.0
 - Upgrade to Lombok 1.18.22
 - Jaeger Tracing Connection Error Logging disabled
