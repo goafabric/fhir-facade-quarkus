@@ -1,4 +1,4 @@
-package org.goafabric.fhir.service;
+package org.goafabric.fhir.controller;
 
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import ca.uhn.fhir.rest.annotation.Create;
@@ -14,14 +14,14 @@ import org.hl7.fhir.r4.model.IdType;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 
-@Path(BundleService.PATH)
-public class BundleService extends AbstractJaxRsResourceProvider<Bundle> {
+@Path(BundleController.PATH)
+public class BundleController extends AbstractJaxRsResourceProvider<Bundle> {
     static final String PATH = ServerConfiguration.ROOT_PATH + "/Bundle";
 
     @Inject
     BundleLogic bundleLogic;
 
-    public BundleService() {
+    public BundleController() {
         super(ServerConfiguration.getFhirContextR4());
     }
 

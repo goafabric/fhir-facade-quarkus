@@ -1,6 +1,9 @@
 package org.goafabric.fhir.configuration;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
+import org.goafabric.fhir.controller.BundleController;
+import org.goafabric.fhir.controller.PatientController;
+import org.goafabric.fhir.controller.PractitionerController;
 import org.hl7.fhir.r4.model.*;
 
 @RegisterForReflection(targets= {
@@ -12,9 +15,9 @@ import org.hl7.fhir.r4.model.*;
 
 
         //Service Classes needed for Metadata
-        org.goafabric.fhir.service.PatientService.class,
-        org.goafabric.fhir.service.PractitionerService.class,
-        org.goafabric.fhir.service.BundleService.class,
+        PatientController.class,
+        PractitionerController.class,
+        BundleController.class,
 
         //Parameter classes
         ca.uhn.fhir.rest.param.StringParam.class,

@@ -10,17 +10,19 @@ import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Resource;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
 @Slf4j
 @ApplicationScoped
 @DurationLog
 public class BundleLogic {
-    @Inject
-    PatientLogic patientLogic;
+    private final PatientLogic patientLogic;
 
-    @Inject
-    PractitionerLogic practitionerLogic;
+    private final PractitionerLogic practitionerLogic;
+
+    public BundleLogic(PatientLogic patientLogic, PractitionerLogic practitionerLogic) {
+        this.patientLogic = patientLogic;
+        this.practitionerLogic = practitionerLogic;
+    }
 
     public Bundle getBundle(IdType idType) {
         if (!"1".equals(idType.getIdPart())) {

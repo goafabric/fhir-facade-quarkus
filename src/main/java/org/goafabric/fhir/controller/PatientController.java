@@ -1,4 +1,4 @@
-package org.goafabric.fhir.service;
+package org.goafabric.fhir.controller;
 
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import ca.uhn.fhir.rest.annotation.IdParam;
@@ -18,14 +18,14 @@ import java.util.List;
 /**
  * A demo JaxRs Patient Rest Provider
  */
-@Path(PatientService.PATH)
-public class PatientService extends AbstractJaxRsResourceProvider<Patient> {
+@Path(PatientController.PATH)
+public class PatientController extends AbstractJaxRsResourceProvider<Patient> {
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Patient";
 
 	@Inject
 	PatientLogic patientLogic;
 
-	public PatientService() {
+	public PatientController() {
 		super(ServerConfiguration.getFhirContextR4());
 	}
 

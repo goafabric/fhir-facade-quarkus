@@ -9,14 +9,16 @@ import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Patient;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.util.List;
 
 @ApplicationScoped
 @DurationLog
 public class PatientLogic {
-    @Inject
-    PersonServiceAdapter personServiceAdapter;
+    private final PersonServiceAdapter personServiceAdapter;
+
+    public PatientLogic(PersonServiceAdapter personServiceAdapter) {
+        this.personServiceAdapter = personServiceAdapter;
+    }
 
     public Patient getPatient(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {

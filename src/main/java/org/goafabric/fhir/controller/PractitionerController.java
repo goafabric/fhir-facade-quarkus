@@ -1,4 +1,4 @@
-package org.goafabric.fhir.service;
+package org.goafabric.fhir.controller;
 
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsResourceProvider;
 import ca.uhn.fhir.rest.annotation.IdParam;
@@ -18,14 +18,14 @@ import java.util.List;
 /**
  * A demo JaxRs Practitioner Rest Provider
  */
-@Path(PractitionerService.PATH)
-public class PractitionerService extends AbstractJaxRsResourceProvider<Practitioner> {
+@Path(PractitionerController.PATH)
+public class PractitionerController extends AbstractJaxRsResourceProvider<Practitioner> {
 	static final String PATH = ServerConfiguration.ROOT_PATH + "/Practitioner";
 
 	@Inject
 	PractitionerLogic practitionerLogic;
 
-	public PractitionerService() {
+	public PractitionerController() {
 		super(ServerConfiguration.getFhirContextR4());
 	}
 

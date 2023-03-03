@@ -1,4 +1,4 @@
-package org.goafabric.fhir.service;
+package org.goafabric.fhir.controller;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.goafabric.fhir.configuration.ServerConfiguration;
@@ -9,7 +9,7 @@ import java.util.Base64;
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
-public class BundleServiceTest {
+public class BundleControllerTest {
 
     @Test
     public void getBundle() {

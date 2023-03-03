@@ -4,9 +4,9 @@ import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.jaxrs.server.AbstractJaxRsConformanceProvider;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import io.quarkus.runtime.Startup;
-import org.goafabric.fhir.service.BundleService;
-import org.goafabric.fhir.service.PatientService;
-import org.goafabric.fhir.service.PractitionerService;
+import org.goafabric.fhir.controller.BundleController;
+import org.goafabric.fhir.controller.PatientController;
+import org.goafabric.fhir.controller.PractitionerController;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.spi.CDI;
@@ -34,9 +34,9 @@ public class ServerConfiguration extends AbstractJaxRsConformanceProvider {
 	protected ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> getProviders() {
 		ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider> map = new ConcurrentHashMap<Class<? extends IResourceProvider>, IResourceProvider>();
 		map.put(ServerConfiguration.class, this);
-		addProvider(map, PatientService.class);
-		addProvider(map, PractitionerService.class);
-		addProvider(map, BundleService.class);
+		addProvider(map, PatientController.class);
+		addProvider(map, PractitionerController.class);
+		addProvider(map, BundleController.class);
 		return map;
 	}
 

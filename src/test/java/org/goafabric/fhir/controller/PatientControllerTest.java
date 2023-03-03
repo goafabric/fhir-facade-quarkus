@@ -1,4 +1,4 @@
-package org.goafabric.fhir.service;
+package org.goafabric.fhir.controller;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.goafabric.fhir.configuration.ServerConfiguration;
@@ -9,13 +9,13 @@ import java.util.Base64;
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
-public class PractionerServiceTest {
+public class PatientControllerTest {
 
     @Test
-    public void getPractitioner() {
+    public void getPatient() {
         given()
                 .auth().basic(new String(Base64.getDecoder().decode("YWRtaW4=")), new String(Base64.getDecoder().decode("YWRtaW4=")))
-                .when().get(ServerConfiguration.ROOT_PATH + "/Practitioner/1")
+                .when().get(ServerConfiguration.ROOT_PATH + "/Patient/1")
                 .then()
                 .statusCode(200);
     }

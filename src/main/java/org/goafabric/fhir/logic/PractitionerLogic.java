@@ -9,14 +9,16 @@ import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.util.List;
 
 @ApplicationScoped
 @DurationLog
 public class PractitionerLogic {
-    @Inject
-    PersonServiceAdapter personServiceAdapter;
+    private final PersonServiceAdapter personServiceAdapter;
+
+    public PractitionerLogic(PersonServiceAdapter personServiceAdapter) {
+        this.personServiceAdapter = personServiceAdapter;
+    }
 
     public Practitioner getPractitioner(final IdType idType) {
         if (!"1".equals(idType.getIdPart())) {
