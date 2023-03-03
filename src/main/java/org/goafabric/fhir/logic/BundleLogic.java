@@ -3,18 +3,20 @@ package org.goafabric.fhir.logic;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
-import lombok.extern.slf4j.Slf4j;
 import org.goafabric.fhir.crossfunctional.DurationLog;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 
-@Slf4j
 @ApplicationScoped
 @DurationLog
 public class BundleLogic {
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     private final PatientLogic patientLogic;
 
     private final PractitionerLogic practitionerLogic;

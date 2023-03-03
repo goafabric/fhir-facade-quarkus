@@ -7,7 +7,6 @@ import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import org.goafabric.fhir.crossfunctional.BaseUrlBean;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.net.URI;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -17,11 +16,14 @@ import java.util.concurrent.TimeUnit;
 public class PersonClientBuilder {
     private final ConcurrentHashMap<String, PersonServiceClient> clients = new ConcurrentHashMap<>();
 
-    @Inject
-    BaseUrlBean baseUrlBean;
+    private final BaseUrlBean baseUrlBean;
 
-    @ConfigProperty(name = "adapter.timeout")
-    Long timeout;
+    private final Long timeout;
+
+    public PersonClientBuilder(BaseUrlBean baseUrlBean, @ConfigProperty(name = "adapter.timeout") Long timeout) {
+        this.baseUrlBean = baseUrlBean;
+        this.timeout = timeout;
+    }
 
     @SneakyThrows
     public PersonServiceClient getClient() {
