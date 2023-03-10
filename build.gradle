@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'io.quarkus' version '2.16.3.Final'
+}
+
+ext {
+	set('dockerRegistry', "goafabric")
+}
+
+dependencies {
+	constraints {
+		implementation'org.mapstruct:mapstruct:1.5.2.Final'
+		annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+	}
+
+	implementation enforcedPlatform('io.quarkus:quarkus-bom:2.16.3.Final')
+}
+
+group = 'org.goafabric'
+version = '2.0.2-gradle-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//web
+	implementation 'io.quarkus:quarkus-arc'
+	implementation 'io.quarkus:quarkus-resteasy-jackson'
+	implementation 'org.jboss.logmanager:log4j2-jboss-logmanager'
+
+	//monitoring
+	implementation 'io.quarkus:quarkus-smallrye-health'
+	implementation 'io.quarkus:quarkus-smallrye-openapi'
+	implementation 'io.quarkus:quarkus-smallrye-opentracing'
+	implementation 'io.quarkus:quarkus-micrometer-registry-prometheus'
+
+	//adapter
+	implementation 'io.quarkus:quarkus-rest-client-jackson'
+	implementation 'io.quarkus:quarkus-smallrye-fault-tolerance'
+
+	//hapi
+	implementation 'ca.uhn.hapi.fhir:hapi-fhir-jaxrsserver-base:5.3.0'
+
+	implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+	//jib
+	implementation 'io.quarkus:quarkus-container-image-jib'
+
+	//code generation
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+	implementation 'org.mapstruct:mapstruct'
+	annotationProcessor 'org.mapstruct:mapstruct-processor'
+
+	//test
+	testImplementation 'io.quarkus:quarkus-junit5'
+	testImplementation 'io.rest-assured:rest-assured'
+	testImplementation 'io.quarkus:quarkus-rest-client-jackson'
+	testImplementation 'io.quarkus:quarkus-jacoco'
+}
+
+test {
+	dependsOn('quarkusBuild')
+	useJUnitPlatform()
+	exclude '**/*NRIT*'
+	systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+}

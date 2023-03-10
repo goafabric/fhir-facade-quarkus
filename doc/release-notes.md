@@ -1,4 +1,5 @@
 # 2.0.1
+- Gradle build added
 
 # 2.0.0
 - Parity with Quarkus Version
